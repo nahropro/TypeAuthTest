@@ -8,7 +8,9 @@ namespace TypeAuthTest.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>()
+                .ForMember(x=> x.Roles, s=> s.MapFrom(x=> x.UserInRoles.Select(p=> p.Role)));
+            CreateMap<Role, RoleDTO>();
 
             CreateMap<RegisterUserDTO, User>();
         }

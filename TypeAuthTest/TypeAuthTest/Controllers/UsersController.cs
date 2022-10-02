@@ -27,9 +27,12 @@ namespace TypeAuthTest.Controllers
         // GET: api/<UsersController>
         [HttpGet]
         [Authorize]
-        public IEnumerable<string> Get()
+        public async Task<UserDTO> Get()
         {
-            return new string[] { "value1", "value2" };
+            int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);
+            var user = await userService.GetUserAsync(userId);
+
+            return mapper.Map<UserDTO>(user);
         }
 
         // POST api/<UsersController>

@@ -7,5 +7,6 @@ namespace TypeAuthTest.Services.Interfaces
     {
         Task<User> RegisterUserAsync(RegisterUserDTO registerUser);
         Task<string> LoginAsync(LoginDTO login);
+        Task<User> GetUserAsync(int id);
     }
 }

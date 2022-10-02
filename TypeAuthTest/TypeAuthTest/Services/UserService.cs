@@ -46,5 +46,10 @@ namespace TypeAuthTest.Services
 
             return tokenService.GenerateJwtToken(user);
         }
+
+        public async Task<User> GetUserAsync(int id)
+        {
+            return await userRepo.GetUserAsync(id);
+        }
     }
 }
