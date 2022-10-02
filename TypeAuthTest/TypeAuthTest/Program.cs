@@ -1,6 +1,11 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using TypeAuthTest.Data;
+using TypeAuthTest.Repos;
+using TypeAuthTest.Repos.Interfaces;
+using TypeAuthTest.Services;
+using TypeAuthTest.Services.Interfaces;
 
 namespace TypeAuthTest
 {
@@ -12,6 +17,8 @@ namespace TypeAuthTest
 
             // Add services to the container.
 
+            builder.Services.AddAutoMapper(typeof(Program));
+
             builder.Services.AddDbContext<TypeAuthDbContext>(options =>
                 options.UseSqlServer("Data Source=127.0.0.1; Initial Catalog=TypeAuth; Integrated Security=True"));
 
@@ -19,6 +26,12 @@ namespace TypeAuthTest
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IUserRepo, UserRepo>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.AddScoped<IHashService, HashService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 
