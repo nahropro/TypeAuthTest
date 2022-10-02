@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Filters;
 using TypeAuthTest.Data;
 using TypeAuthTest.Repos;
 using TypeAuthTest.Repos.Interfaces;
@@ -25,7 +27,26 @@ namespace TypeAuthTest
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(o =>
+            {
+                o.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Description = "JWT token",
+                    In = ParameterLocation.Header,
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                o.OperationFilter<SecurityRequirementsOperationFilter>();
+
+                //o.SwaggerDoc("v1", new OpenApiInfo { Title = "SLB.Web", Version = "v1" });
+
+                //string filePath = Path.Combine(AppContext.BaseDirectory, "SLB.Web.Server.xml");
+                //o.IncludeXmlComments(filePath);
+
+                //string filePath2 = Path.Combine(AppContext.BaseDirectory, "SLB.Shared.xml");
+                //o.IncludeXmlComments(filePath2);
+            });
 
             builder.Services.AddScoped<IUserRepo, UserRepo>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
