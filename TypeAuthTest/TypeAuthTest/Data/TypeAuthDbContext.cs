@@ -9,7 +9,6 @@ namespace TypeAuthTest.Data
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
-        public DbSet<Claim> Claims { get; set; }
 
 
         public TypeAuthDbContext(DbContextOptions<TypeAuthDbContext> options) : base(options)
