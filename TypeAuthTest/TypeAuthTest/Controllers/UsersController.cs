@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TypeAuthTest.DTOs.UserDTOs;
 using TypeAuthTest.Repos.Interfaces;
@@ -25,6 +26,7 @@ namespace TypeAuthTest.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
+        [Authorize]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };

@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using System.Text;
 using TypeAuthTest.Data;
 using TypeAuthTest.Repos;
 using TypeAuthTest.Repos.Interfaces;
@@ -38,14 +41,25 @@ namespace TypeAuthTest
                 });
 
                 o.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
 
-                //o.SwaggerDoc("v1", new OpenApiInfo { Title = "SLB.Web", Version = "v1" });
-
-                //string filePath = Path.Combine(AppContext.BaseDirectory, "SLB.Web.Server.xml");
-                //o.IncludeXmlComments(filePath);
-
-                //string filePath2 = Path.Combine(AppContext.BaseDirectory, "SLB.Shared.xml");
-                //o.IncludeXmlComments(filePath2);
+            builder.Services.AddAuthentication(a =>
+            {
+                a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = "TypeAuth",
+                    ValidIssuer = "TypeAuth",
+                    RequireExpirationTime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VerySecretKeyVerySecretKeyVerySecretKeyVerySecretKeyVerySecretKey")),
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                };
             });
 
             builder.Services.AddScoped<IUserRepo, UserRepo>();
@@ -66,6 +80,7 @@ namespace TypeAuthTest
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
