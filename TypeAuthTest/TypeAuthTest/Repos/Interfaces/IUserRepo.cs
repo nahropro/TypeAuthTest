@@ -6,5 +6,6 @@ namespace TypeAuthTest.Repos.Interfaces
     {
         Task<User> CreateUserAsync(User user);
         Task<User> GetUserAsync(int id);
+        Task<User> GetUserByUserNameAsync(string username);
     }
 }

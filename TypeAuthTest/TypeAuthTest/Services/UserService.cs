@@ -9,11 +9,13 @@ namespace TypeAuthTest.Services
     {
         private readonly IUserRepo userRepo;
         private readonly IHashService hashService;
+        private readonly ITokenService tokenService;
 
-        public UserService(IUserRepo userRepo, IHashService hashService)
+        public UserService(IUserRepo userRepo, IHashService hashService, ITokenService tokenService)
         {
             this.userRepo = userRepo;
             this.hashService = hashService;
+            this.tokenService = tokenService;
         }
 
         public async Task<User> RegisterUserAsync(RegisterUserDTO registerUser)
@@ -30,6 +32,19 @@ namespace TypeAuthTest.Services
             user = await userRepo.CreateUserAsync(user);
 
             return user;
+        }
+
+        public async Task<string> LoginAsync(LoginDTO login)
+        {
+            var user = await userRepo.GetUserByUserNameAsync(login.Username);
+
+            if (user is null)
+                return null;
+
+            if (!hashService.VerifyPassword(login.Password, user.Salt, user.PasswordHash))
+                return null;
+
+            return tokenService.GenerateJwtToken(user);
         }
     }
 }

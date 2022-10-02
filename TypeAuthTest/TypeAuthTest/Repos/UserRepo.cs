@@ -1,4 +1,5 @@
-﻿using TypeAuthTest.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TypeAuthTest.Data;
 using TypeAuthTest.Models;
 using TypeAuthTest.Repos.Interfaces;
 
@@ -22,7 +23,14 @@ namespace TypeAuthTest.Repos
 
         public async Task<User> GetUserAsync(int id)
         {
-            return await db.Users.FindAsync(id);
+            return await db.Users.Include(x => x.UserInRoles).ThenInclude(x => x.Role).
+                SingleAsync(x => x.Id == id);
+        }
+
+        public async Task<User> GetUserByUserNameAsync(string username)
+        {
+            return await db.Users.Include(x => x.UserInRoles).ThenInclude(x => x.Role).
+                SingleAsync(x => x.Username.ToLower() == username.ToLower());
         }
     }
 }

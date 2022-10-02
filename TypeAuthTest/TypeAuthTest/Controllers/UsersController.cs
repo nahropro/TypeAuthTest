@@ -31,8 +31,8 @@ namespace TypeAuthTest.Controllers
         }
 
         // POST api/<UsersController>
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] RegisterUserDTO registerUser)
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromBody] RegisterUserDTO registerUser)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -44,10 +44,18 @@ namespace TypeAuthTest.Controllers
             return Ok(mapper.Map<UserDTO>(user));
         }
 
-        // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginDTO login)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var token =await userService.LoginAsync(login);
+
+            if (string.IsNullOrWhiteSpace(token))
+                return BadRequest("Username or password is invalid");
+
+            return Ok(token);
         }
     }
 }
