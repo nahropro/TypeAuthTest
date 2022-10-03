@@ -7,9 +7,8 @@ namespace TypeAuthTest.AccessTree
         public SalesAction Parent { get; set; }
         public double Value { get; set; }
 
-        public SalesDiscountAction()
+        public SalesDiscountAction(): base("Base.Sales.Discount")
         {
-            base.PolicyName = "Base.Sales.Discount";
         }
     }
 }

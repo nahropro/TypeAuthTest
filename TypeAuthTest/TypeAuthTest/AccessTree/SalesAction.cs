@@ -16,9 +16,8 @@ namespace TypeAuthTest.AccessTree
 
         public SalesValidDateAction ValidDate { get; set; }
 
-        public SalesAction()
+        public SalesAction() : base("Base.Sales")
         {
-            base.PolicyName = "Base.Sales";
             Write.Parent = this;
             Delete.Parent = this;
             Discount.Parent = this;

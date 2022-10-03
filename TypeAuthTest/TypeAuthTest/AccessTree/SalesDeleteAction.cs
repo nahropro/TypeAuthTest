@@ -7,9 +7,8 @@ namespace TypeAuthTest.AccessTree
         public bool Access { get; set; }
         public SalesAction Parent { get; set; }
 
-        public SalesDeleteAction()
+        public SalesDeleteAction() : base("Base.Sales.Delete")
         {
-            PolicyName = "Base.Sales.Delete";
         }
 
         public override bool ConfigurePolicy()

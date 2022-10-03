@@ -8,9 +8,8 @@ namespace TypeAuthTest.AccessTree
         public DateOnly Max { get; set; }
         public SalesAction Parent { get; set; }
 
-        public SalesValidDateAction()
+        public SalesValidDateAction(): base("Base.Sales.ValidDate")
         {
-            base.PolicyName = "Base.Sales.ValidDate";
         }
 
         public override bool ConfigurePolicy()

@@ -9,9 +9,8 @@ namespace TypeAuthTest.AccessTree
 
         public SalesAction Sales { get; set; }
 
-        public BaseAction()
+        public BaseAction() : base("Base")
         {
-            base.PolicyName = "Base";
             Sales.Parent = this;
         }
 

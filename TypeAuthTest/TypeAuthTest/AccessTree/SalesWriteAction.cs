@@ -7,9 +7,8 @@ namespace TypeAuthTest.AccessTree
         public bool Access { get; set; }
         public SalesAction Parent { get; set; }
 
-        public SalesWriteAction()
+        public SalesWriteAction() : base("Base.Sales.Write")
         {
-            base.PolicyName = "Base.Sales.Write";
         }
 
         public override bool ConfigurePolicy()
