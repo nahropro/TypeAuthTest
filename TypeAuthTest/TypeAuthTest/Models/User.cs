@@ -12,7 +12,7 @@ namespace TypeAuthTest.Models
 
         public byte[] Salt { get; set; }
 
-        public IEnumerable<UserInRole> UserInRoles { get; set; }
+        public List<UserInRole> UserInRoles { get; set; }
 
         public User()
         {

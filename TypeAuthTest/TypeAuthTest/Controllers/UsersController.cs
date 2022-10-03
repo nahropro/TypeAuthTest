@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TypeAuthTest.DTOs.UserDTOs;
+using TypeAuthTest.Models;
 using TypeAuthTest.Repos.Interfaces;
 using TypeAuthTest.Services.Interfaces;
 
@@ -33,6 +34,27 @@ namespace TypeAuthTest.Controllers
             var user = await userService.GetUserAsync(userId);
 
             return mapper.Map<UserDTO>(user);
+        }
+
+        [HttpPost("SetUserInRole/{userId:int}")]
+        public async Task<IActionResult> SetUserInRole(int userId, [FromBody] int[] roleIds)
+        {
+            var user = await userService.GetUserAsync(userId);
+
+            if (user is null)
+                return BadRequest("User-id is invalid");
+
+            user.UserInRoles.AddRange(roleIds.Select(x =>
+                new UserInRole
+                {
+                    RoleId=x
+                }));
+
+            await unitOfWork.SaveChangesAsync();
+
+            user = await userService.GetUserAsync(userId);
+
+            return Ok(mapper.Map<UserDTO>(user));
         }
 
         // POST api/<UsersController>

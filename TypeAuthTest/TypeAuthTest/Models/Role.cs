@@ -8,7 +8,7 @@
 
         public string AccessTree { get; set; }
 
-        public IEnumerable<UserInRole> UserInRoles { get; set; }
+        public List<UserInRole> UserInRoles { get; set; }
 
         public Role()
         {
