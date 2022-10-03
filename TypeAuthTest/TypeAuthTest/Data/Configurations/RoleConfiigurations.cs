@@ -10,6 +10,7 @@ namespace TypeAuthTest.Data.Configurations
         {
             builder.Property(x => x.Name).HasMaxLength(255).IsRequired();
             builder.HasIndex(x => x.Name).IsUnique();
+            builder.Property(x => x.AccessTree).IsRequired(false);
         }
     }
 }

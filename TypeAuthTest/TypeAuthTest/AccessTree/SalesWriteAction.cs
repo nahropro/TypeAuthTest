@@ -2,13 +2,14 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class SalesWriteAction : PolicyConfiguratiion, IAccessAction, IParentAction<SalesAction>
+    public class SalesWriteAction : PolicyConfiguratiion, IAccessAction
     {
         public bool Access { get; set; }
-        public SalesAction Parent { get; set; }
+        public SalesAction? Parent { get; private set; }
 
-        public SalesWriteAction() : base("Base.Sales.Write")
+        public SalesWriteAction(SalesAction parent) : base("Base.Sales.Write")
         {
+            Parent = parent;
         }
 
         public override bool ConfigurePolicy()

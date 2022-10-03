@@ -11,7 +11,7 @@ namespace TypeAuthTest.AccessTree
 
         public BaseAction() : base("Base")
         {
-            Sales.Parent = this;
+            Sales = new(this);
         }
 
         public override bool ConfigurePolicy()

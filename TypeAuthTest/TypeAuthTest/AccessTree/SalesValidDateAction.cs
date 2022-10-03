@@ -2,19 +2,20 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class SalesValidDateAction : PolicyConfiguratiion, IDateRangeAction, IParentAction<SalesAction>
+    public class SalesValidDateAction : PolicyConfiguratiion, IDateRangeAction
     {
-        public DateOnly Min { get; set; }
-        public DateOnly Max { get; set; }
-        public SalesAction Parent { get; set; }
+        public DateTime Min { get; set; }
+        public DateTime Max { get; set; }
+        public SalesAction? Parent { get; set; }
 
-        public SalesValidDateAction(): base("Base.Sales.ValidDate")
+        public SalesValidDateAction(SalesAction parent) : base("Base.Sales.ValidDate")
         {
+            Parent = parent;
         }
 
         public override bool ConfigurePolicy()
         {
-            return (DateTime.Now.Date>= Min.ToDateTime(new TimeOnly(0)) && DateTime.Now.Date<=Max.ToDateTime(new TimeOnly(0))) 
+            return (DateTime.Now.Date>= Min && DateTime.Now.Date<=Max) 
                 && Parent.ConfigurePolicy();
         }
     }

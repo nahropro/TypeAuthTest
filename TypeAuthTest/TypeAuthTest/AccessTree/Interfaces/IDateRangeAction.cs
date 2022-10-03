@@ -2,8 +2,8 @@
 {
     public interface IDateRangeAction
     {
-        public DateOnly Min { get; set; }
+        public DateTime Min { get; set; }
 
-        public DateOnly Max { get; set; }
+        public DateTime Max { get; set; }
     }
 }

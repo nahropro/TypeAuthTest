@@ -64,6 +64,7 @@ namespace TypeAuthTest
 
             builder.Services.AddScoped<IUserRepo, UserRepo>();
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddScoped<IRoleRepo, RoleRepo>();
 
             builder.Services.AddScoped<IHashService, HashService>();
             builder.Services.AddScoped<IUserService, UserService>();

@@ -1,4 +1,6 @@
-﻿namespace TypeAuthTest.DTOs.UserDTOs
+﻿using TypeAuthTest.DTOs.RoleDTOs;
+
+namespace TypeAuthTest.DTOs.UserDTOs
 {
     public class UserDTO
     {
@@ -6,6 +8,11 @@
 
         public string Username { get; set; }
 
-        public IEnumerable<RoleDTO> Roles { get; set; }
+        public List<RoleDTO> Roles { get; set; }
+
+        public UserDTO()
+        {
+            Roles = new();
+        }
     }
 }

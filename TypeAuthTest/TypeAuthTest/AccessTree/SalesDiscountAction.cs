@@ -2,13 +2,14 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class SalesDiscountAction : PolicyConfiguratiion, IDoubleAction, IParentAction<SalesAction>
+    public class SalesDiscountAction : PolicyConfiguratiion, IDoubleAction
     {
-        public SalesAction Parent { get; set; }
         public double Value { get; set; }
+        public SalesAction? Parent { get; set; }
 
-        public SalesDiscountAction(): base("Base.Sales.Discount")
+        public SalesDiscountAction(SalesAction parent) : base("Base.Sales.Discount")
         {
+            Parent = parent;
         }
     }
 }
