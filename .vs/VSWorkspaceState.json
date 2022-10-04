@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TypeAuthTest",
+    "\\TypeAuthTest\\TypeAuthTest",
+    "\\TypeAuthTest\\TypeAuthTest\\AccessTree"
   ],
+  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\AccessTree\\PolicyConfiguratiion.cs",
   "PreviewInSolutionExplorer": false
 }

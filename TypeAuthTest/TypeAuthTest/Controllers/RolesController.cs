@@ -63,8 +63,18 @@ namespace TypeAuthTest.Controllers
 
         // DELETE api/<RolesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var role = await roleRepo.GetAsync(id);
+
+            if (role is null)
+                return BadRequest("Role not found");
+
+            roleRepo.RemoveRole(role);
+
+            await unitOfWork.SaveChangesAsync();
+
+            return Ok(mapper.Map<RoleDTO>(role));
         }
     }
 }

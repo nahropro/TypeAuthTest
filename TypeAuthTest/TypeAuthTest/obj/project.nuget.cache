@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ynokrgXDuWl4tUD6Rf7gKDCcMcayiBzg5/+E2GvIxg+XoihucWOUVEJDg23gpOu3xcPHeOpK1aRyNonEerY7yA==",
+  "dgSpecHash": "tDbRDqwC4wm4YjD+QDToAbcKuW7rVYK57JZGYzoUMZ9VgeANZPC7HPMbG2Qf5qlHtzIvgIURqOQxurGbmQye9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
+  "projectFilePath": "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nahro\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Nahro\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
