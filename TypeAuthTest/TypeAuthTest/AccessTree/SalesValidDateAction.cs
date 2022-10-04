@@ -2,7 +2,7 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class SalesValidDateAction : PolicyConfiguratiion, IDateRangeAction, IComputeAction<SalesAction>
+    public class SalesValidDateAction : PolicyConfiguration, IDateRangeAction, IComputeAction<SalesAction>
     {
         public DateTime Min { get; set; }
         public DateTime Max { get; set; }

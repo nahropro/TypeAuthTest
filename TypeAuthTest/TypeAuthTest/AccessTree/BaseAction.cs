@@ -2,7 +2,7 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class BaseAction : PolicyConfiguratiion, IAccessAction, IComputeAction
+    public class BaseAction : PolicyConfiguration, IAccessAction, IComputeAction
     {
 
         public bool Access { get ; set ; }

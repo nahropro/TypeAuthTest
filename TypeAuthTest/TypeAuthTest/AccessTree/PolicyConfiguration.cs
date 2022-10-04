@@ -1,10 +1,10 @@
 ﻿namespace TypeAuthTest.AccessTree
 {
-    public abstract class PolicyConfiguratiion
+    public abstract class PolicyConfiguration
     {
         public string ActionName { get; private set; }
 
-        public PolicyConfiguratiion(string actionName)
+        public PolicyConfiguration(string actionName)
         {
             ActionName = actionName;
         }
