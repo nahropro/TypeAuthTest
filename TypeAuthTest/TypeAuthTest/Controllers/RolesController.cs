@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.DependencyModel.Resolution;
+using TypeAuthTest.AccessTree;
 using TypeAuthTest.DTOs.RoleDTOs;
 using TypeAuthTest.Models;
 using TypeAuthTest.Repos.Interfaces;
@@ -57,8 +59,21 @@ namespace TypeAuthTest.Controllers
 
         // PUT api/<RolesController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] BaseAction actionTree)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var role = await roleRepo.GetAsync(id);
+
+            if (role is null)
+                return BadRequest("Role not found");
+
+            role =await roleRepo.UpdateRoleAccessTreeAsync(role,actionTree);
+
+            await unitOfWork.SaveChangesAsync();
+
+            return Ok(mapper.Map<RoleDTO>(role));
         }
 
         // DELETE api/<RolesController>/5
