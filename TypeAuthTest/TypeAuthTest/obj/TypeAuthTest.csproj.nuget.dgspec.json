@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj": {}
+    "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj": {
+    "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
+        "projectUniqueName": "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
         "projectName": "TypeAuthTest",
-        "projectPath": "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
+        "projectPath": "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest.csproj",
         "packagesPath": "C:\\Users\\Nahro\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\obj\\",
+        "outputPath": "C:\\Users\\Nahro\\Source\\Repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuthTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

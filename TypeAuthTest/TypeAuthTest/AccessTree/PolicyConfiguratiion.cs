@@ -2,11 +2,11 @@
 {
     public abstract class PolicyConfiguratiion
     {
-        public string PolicyName { get; private set; }
+        public string ActionName { get; private set; }
 
-        public PolicyConfiguratiion(string policyName)
+        public PolicyConfiguratiion(string actionName)
         {
-            PolicyName = policyName;
+            ActionName = actionName;
         }
 
         public virtual bool ConfigurePolicy()
