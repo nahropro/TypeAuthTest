@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using TypeAuthTest.AccessTree;
 using TypeAuthTest.DTOs.UserDTOs;
 using TypeAuthTest.Models;
 using TypeAuthTest.Repos.Interfaces;
@@ -26,8 +28,8 @@ namespace TypeAuthTest.Controllers
         }
 
         // GET: api/<UsersController>
-        [HttpGet]
-        [Authorize]
+        //[HttpGet]
+        //[Authorize]
         public async Task<UserDTO> Get()
         {
             int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);

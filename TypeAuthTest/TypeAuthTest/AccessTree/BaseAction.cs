@@ -2,7 +2,7 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class BaseAction : PolicyConfiguratiion, IAccessAction
+    public class BaseAction : PolicyConfiguratiion, IAccessAction, IComputeAction
     {
 
         public bool Access { get ; set ; }
@@ -11,12 +11,16 @@ namespace TypeAuthTest.AccessTree
 
         public BaseAction() : base("Base")
         {
-            Sales = new(this);
         }
 
         public override bool ConfigurePolicy()
         {
             return Access;
+        }
+
+        public void ComputeAction()
+        {
+            Sales.ComputeAction(this);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TypeAuthTest.AccessTree
 {
-    public class SalesAction : PolicyConfiguratiion, IAccessAction
+    public class SalesAction : PolicyConfiguratiion, IAccessAction, IComputeAction<BaseAction>
     {
         public bool Access { get; set; }
 
@@ -16,19 +16,23 @@ namespace TypeAuthTest.AccessTree
 
         public SalesValidDateAction ValidDate { get; set; }
 
-        public SalesAction(BaseAction parent) : base("Base.Sales")
+        public SalesAction() : base("Base.Sales")
         {
-            Parent=parent;
-
-            Write = new(this);
-            Delete = new(this);
-            Discount = new(this);
-            ValidDate = new(this);
         }
 
         public override bool ConfigurePolicy()
         {
             return Access && Parent.ConfigurePolicy();
+        }
+
+        public void ComputeAction(BaseAction parent)
+        {
+            this.Parent = parent;
+
+            Write.ComputeAction(this);
+            Delete.ComputeAction(this);
+            Discount.ComputeAction(this);
+            ValidDate.ComputeAction(this);
         }
     }
 }
