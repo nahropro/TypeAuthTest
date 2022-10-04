@@ -1,6 +1,6 @@
 ﻿using TypeAuthTest.AccessTree.Interfaces;
 
-namespace TypeAuthTest.AccessTree
+namespace TypeAuthTest.AccessTree.Sales
 {
     public class SalesWriteAction : PolicyConfiguration, IAccessAction, IComputeAction<SalesAction>
     {
@@ -13,7 +13,7 @@ namespace TypeAuthTest.AccessTree
 
         public override bool ConfigurePolicy()
         {
-            return Access & Parent.ConfigurePolicy();
+            return Access && Parent.ConfigurePolicy();
         }
 
         public void ComputeAction(SalesAction parent)

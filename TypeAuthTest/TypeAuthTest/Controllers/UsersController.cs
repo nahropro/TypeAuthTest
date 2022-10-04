@@ -27,15 +27,27 @@ namespace TypeAuthTest.Controllers
             this.mapper = mapper;
         }
 
-        // GET: api/<UsersController>
         //[HttpGet]
         //[Authorize]
-        public async Task<UserDTO> Get()
-        {
-            int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);
-            var user = await userService.GetUserAsync(userId);
+        //public async Task<UserDTO> Get()
+        //{
+        //    int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);
+        //    var user = await userService.GetUserAsync(userId);
 
-            return mapper.Map<UserDTO>(user);
+        //    var userDTO = mapper.Map<UserDTO>(user);
+
+        //    return userDTO;
+        //}
+
+        [HttpGet]
+        public string Get()
+        {
+            var accessTreesJSON = User.Claims.Single(x => x.Type == "AccessTrees").Value;
+            var accessTrees = JsonSerializer.Deserialize<BaseAction[]>(accessTreesJSON);
+
+            accessTrees[0].ComputeAction();
+
+            return accessTrees[0].Sales.ViewArchive.ConfigurePolicy().ToString();
         }
 
         [HttpPost("SetUserInRole/{userId:int}")]

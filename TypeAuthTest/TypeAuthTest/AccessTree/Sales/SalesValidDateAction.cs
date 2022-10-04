@@ -1,6 +1,6 @@
 ﻿using TypeAuthTest.AccessTree.Interfaces;
 
-namespace TypeAuthTest.AccessTree
+namespace TypeAuthTest.AccessTree.Sales
 {
     public class SalesValidDateAction : PolicyConfiguration, IDateRangeAction, IComputeAction<SalesAction>
     {
@@ -14,7 +14,7 @@ namespace TypeAuthTest.AccessTree
 
         public override bool ConfigurePolicy()
         {
-            return (DateTime.Now.Date>= Min && DateTime.Now.Date<=Max) 
+            return DateTime.Now.Date >= Min && DateTime.Now.Date <= Max
                 && Parent.ConfigurePolicy();
         }
 

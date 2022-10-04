@@ -1,4 +1,5 @@
 ﻿using TypeAuthTest.AccessTree.Interfaces;
+using TypeAuthTest.AccessTree.Sales;
 
 namespace TypeAuthTest.AccessTree
 {

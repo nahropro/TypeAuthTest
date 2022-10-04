@@ -1,6 +1,6 @@
 ﻿using TypeAuthTest.AccessTree.Interfaces;
 
-namespace TypeAuthTest.AccessTree
+namespace TypeAuthTest.AccessTree.Sales
 {
     public class SalesAction : PolicyConfiguration, IAccessAction, IComputeAction<BaseAction>
     {
@@ -10,7 +10,11 @@ namespace TypeAuthTest.AccessTree
 
         public SalesWriteAction Write { get; set; }
 
-        public SalesDeleteAction Delete { get; set; }
+        public SalesUpdateAction Update { get; set; }
+
+        public SalesDeleteAction? Delete { get; set; }
+
+        public SalesViewArchiveAction? ViewArchive { get; set; }
 
         public SalesDiscountAction Discount { get; set; }
 
@@ -27,12 +31,18 @@ namespace TypeAuthTest.AccessTree
 
         public void ComputeAction(BaseAction parent)
         {
-            this.Parent = parent;
+            Parent = parent;
 
             Write.ComputeAction(this);
-            Delete.ComputeAction(this);
             Discount.ComputeAction(this);
             ValidDate.ComputeAction(this);
+            Update.ComputeAction(this);
+
+            Delete = Delete ?? new();
+            Delete.ComputeAction(this);
+
+            ViewArchive = ViewArchive ?? new();
+            ViewArchive.ComputeAction(this);
         }
     }
 }
