@@ -3,12 +3,12 @@ using TypeAuthTest.AccessTree.Interfaces;
 
 namespace TypeAuthTest.AccessTree.Sales
 {
-    public class SalesDiscountAction : IDoubleAction, IComputeAction<SalesAction>
+    public class SalesDiscountAction : IDoubleAction, IComputeAction<SalesAction>, IAuthorizeAction
     {
         private double _value;
         public double Value { get
             {
-                if (!Parent.ComputePolicy())
+                if (!IsAuthorized())
                     throw new AuthenticationException("You don't have this permistion!");
 
                 return _value;
@@ -24,6 +24,11 @@ namespace TypeAuthTest.AccessTree.Sales
         public void ComputeAction(SalesAction parent)
         {
             Parent = parent;
+        }
+
+        public bool IsAuthorized()
+        {
+            return Parent.ComputePolicy();
         }
     }
 }
