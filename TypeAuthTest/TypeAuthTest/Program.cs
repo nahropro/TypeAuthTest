@@ -70,6 +70,7 @@ namespace TypeAuthTest
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<ISalesService, SalesService>();
+            builder.Services.AddHttpContextAccessor();
 
             var app = builder.Build();
 
