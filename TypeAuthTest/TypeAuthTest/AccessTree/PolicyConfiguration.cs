@@ -9,7 +9,7 @@
             ActionName = actionName;
         }
 
-        public virtual bool ConfigurePolicy()
+        public virtual bool ComputePolicy()
         {
             return false;
         }

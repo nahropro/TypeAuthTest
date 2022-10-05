@@ -14,7 +14,7 @@ namespace TypeAuthTest.AccessTree
         {
         }
 
-        public override bool ConfigurePolicy()
+        public override bool ComputePolicy()
         {
             return Access;
         }

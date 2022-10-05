@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using TypeAuthTest.AccessTree;
 using TypeAuthTest.DTOs.UserDTOs;
+using TypeAuthTest.Extentions;
 using TypeAuthTest.Models;
 using TypeAuthTest.Repos.Interfaces;
 using TypeAuthTest.Services.Interfaces;
@@ -27,16 +28,23 @@ namespace TypeAuthTest.Controllers
             this.mapper = mapper;
         }
 
+        //[HttpGet]
+        //[Authorize]
+        //public async Task<UserDTO> Get()
+        //{
+        //    int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);
+        //    var user = await userService.GetUserAsync(userId);
+
+        //    var userDTO = mapper.Map<UserDTO>(user);
+
+        //    return userDTO;
+        //}
+
         [HttpGet]
         [Authorize]
-        public async Task<UserDTO> Get()
+        public string Get()
         {
-            int userId = int.Parse(User.Claims.Single(x => x.Type == "UserId").Value);
-            var user = await userService.GetUserAsync(userId);
-
-            var userDTO = mapper.Map<UserDTO>(user);
-
-            return userDTO;
+            return this.GetAccessTree().Sales.Discount.Value.ToString();
         }
 
         [HttpPost("SetUserInRole/{userId:int}")]

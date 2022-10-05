@@ -12,10 +12,10 @@ namespace TypeAuthTest.AccessTree.Sales
         {
         }
 
-        public override bool ConfigurePolicy()
+        public override bool ComputePolicy()
         {
             return DateTime.Now.Date >= Min && DateTime.Now.Date <= Max
-                && Parent.ConfigurePolicy();
+                && Parent.ComputePolicy();
         }
 
         public void ComputeAction(SalesAction parent)

@@ -4,13 +4,13 @@ namespace TypeAuthTest.AccessTree.Sales
 {
     public class SalesViewArchiveAction : PolicyConfiguration, IAccessReadOnlyAction, IComputeAction<SalesAction>
     {
-        private bool p => (Parent?.ConfigurePolicy() ?? false);
-        private bool w => (Parent?.Write.ConfigurePolicy() ?? false);
-        private bool u => (Parent?.Update.ConfigurePolicy() ?? false);
-        private bool d => (Parent?.Delete?.ConfigurePolicy() ?? false);
+        private bool p => (Parent?.ComputePolicy() ?? false);
+        private bool w => (Parent?.Write.ComputePolicy() ?? false);
+        private bool u => (Parent?.Update.ComputePolicy() ?? false);
+        private bool d => (Parent?.Delete?.ComputePolicy() ?? false);
 
-        public bool Access => (Parent?.ConfigurePolicy() ?? false) && (Parent?.Write.ConfigurePolicy() ?? false) &&
-            (Parent?.Update.ConfigurePolicy() ?? false) && (Parent?.Delete?.ConfigurePolicy() ?? false);
+        public bool Access => (Parent?.ComputePolicy() ?? false) && (Parent?.Write.ComputePolicy() ?? false) &&
+            (Parent?.Update.ComputePolicy() ?? false) && (Parent?.Delete?.ComputePolicy() ?? false);
 
         public SalesAction? Parent { get; private set; }
 
@@ -23,9 +23,9 @@ namespace TypeAuthTest.AccessTree.Sales
             Parent=parent;
         }
 
-        public override bool ConfigurePolicy()
+        public override bool ComputePolicy()
         {
-            return Access && Parent.ConfigurePolicy();
+            return Access && Parent.ComputePolicy();
         }
     }
 }

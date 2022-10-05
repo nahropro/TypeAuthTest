@@ -9,7 +9,7 @@ namespace TypeAuthTest.AccessTree.Sales
         public bool Access {
             get
             {
-                return _access || ((Parent?.Write.ConfigurePolicy() ?? false) && (Parent?.Update.ConfigurePolicy() ?? false));
+                return _access || ((Parent?.Write.ComputePolicy() ?? false) && (Parent?.Update.ComputePolicy() ?? false));
             }
             set
             {
@@ -23,9 +23,9 @@ namespace TypeAuthTest.AccessTree.Sales
         {
         }
 
-        public override bool ConfigurePolicy()
+        public override bool ComputePolicy()
         {
-            return Access && Parent.ConfigurePolicy();
+            return Access && Parent.ComputePolicy();
         }
 
         public void ComputeAction(SalesAction parent)

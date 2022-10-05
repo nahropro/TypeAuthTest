@@ -16,9 +16,9 @@ namespace TypeAuthTest.AccessTree.Sales
             Parent = parent;
         }
 
-        public override bool ConfigurePolicy()
+        public override bool ComputePolicy()
         {
-            return Access && Parent.ConfigurePolicy();
+            return Access && Parent.ComputePolicy();
         }
     }
 }

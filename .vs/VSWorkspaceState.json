@@ -3,8 +3,9 @@
     "",
     "\\TypeAuthTest",
     "\\TypeAuthTest\\TypeAuthTest",
-    "\\TypeAuthTest\\TypeAuthTest\\AccessTree"
+    "\\TypeAuthTest\\TypeAuthTest\\AccessTree",
+    "\\TypeAuthTest\\TypeAuthTest\\Mapping"
   ],
-  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\AccessTree\\PolicyConfiguratiion.cs",
+  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\AccessTree\\PolicyConfiguration.cs",
   "PreviewInSolutionExplorer": false
 }
