@@ -1,12 +1,19 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json;
+using TypeAuthTest.AccessTree;
 using TypeAuthTest.Data;
+using TypeAuthTest.Extentions;
+using TypeAuthTest.General;
 using TypeAuthTest.Repos;
 using TypeAuthTest.Repos.Interfaces;
 using TypeAuthTest.Services;
@@ -71,6 +78,9 @@ namespace TypeAuthTest
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<ISalesService, SalesService>();
             builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddAuthorization();
+            builder.Services.AddSingleton<IAuthorizationPolicyProvider, AuthorizationPolicyProvider>();
 
             var app = builder.Build();
 
