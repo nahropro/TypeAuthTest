@@ -4,8 +4,9 @@
     "\\TypeAuthTest",
     "\\TypeAuthTest\\TypeAuthTest",
     "\\TypeAuthTest\\TypeAuthTest\\AccessTree",
+    "\\TypeAuthTest\\TypeAuthTest\\Controllers",
     "\\TypeAuthTest\\TypeAuthTest\\Mapping"
   ],
-  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\AccessTree\\PolicyConfiguration.cs",
+  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\Controllers\\UsersController.cs",
   "PreviewInSolutionExplorer": false
 }

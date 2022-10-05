@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TypeAuthTest.DTOs.SalesDTOs;
 using TypeAuthTest.Extentions;
+using TypeAuthTest.Services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +13,24 @@ namespace TypeAuthTest.Controllers
     [Authorize]
     public class SalesController : ControllerBase
     {
+        private readonly ISalesService salesService;
+
+        public SalesController(ISalesService salesService)
+        {
+            this.salesService = salesService;
+        }
+
         // GET: api/<SalesController>
         [HttpGet]
         public string Get()
         {
             return "List of sales";
+        }
+
+        [HttpGet("Archive")]
+        public string GetArchive()
+        {
+            return salesService.GetArchives();
         }
 
         // GET api/<SalesController>/5
