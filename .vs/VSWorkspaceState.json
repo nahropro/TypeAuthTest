@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\TypeAuthTest",
+    "\\TypeAuthTest\\TypeAuth.ActionTree",
+    "\\TypeAuthTest\\TypeAuth.ActionTree\\ActionTrees",
     "\\TypeAuthTest\\TypeAuthTest",
     "\\TypeAuthTest\\TypeAuthTest\\AccessTree",
     "\\TypeAuthTest\\TypeAuthTest\\Controllers",
     "\\TypeAuthTest\\TypeAuthTest\\Mapping"
   ],
-  "SelectedNode": "\\TypeAuthTest\\TypeAuthTest\\Controllers\\UsersController.cs",
+  "SelectedNode": "\\TypeAuthTest\\TypeAuth.ActionTree\\ActionTrees\\CRMActions.cs",
   "PreviewInSolutionExplorer": false
 }

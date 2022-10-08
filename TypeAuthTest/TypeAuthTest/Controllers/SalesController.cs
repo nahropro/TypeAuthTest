@@ -22,14 +22,14 @@ namespace TypeAuthTest.Controllers
 
         // GET: api/<SalesController>
         [HttpGet]
-        [Authorize(Policy ="Base.Sales")]
+        [Authorize(Policy ="Customers.Read")]
         public string Get()
         {
             return "List of sales";
         }
 
         [HttpGet("{id}")]
-        [Authorize(Policy = "Base.Sales")]
+        [Authorize(Policy = "Customers.Read")]
         public string Get(int id)
         {
             return "Sales " + id.ToString();
@@ -43,8 +43,7 @@ namespace TypeAuthTest.Controllers
 
         // POST api/<SalesController>
         [HttpPost]
-        [Authorize(Policy = "Base.Sales.Write")]
-        [Authorize(Policy = "Base.Sales.ValidDate")]
+        [Authorize(Policy = "Customers.Write")]
         public IActionResult Post([FromBody] SalesDTO salesDTO)
         {
             if (salesDTO.Discount > this.GetAccessTree().Sales.Discount.Value)
@@ -55,8 +54,7 @@ namespace TypeAuthTest.Controllers
 
         // PUT api/<SalesController>/5
         [HttpPut("{id}")]
-        [Authorize(Policy = "Base.Sales.Update")]
-        [Authorize(Policy = "Base.Sales.ValidDate")]
+        [Authorize(Policy = "Customers.Write")]
         public IActionResult Put(int id, [FromBody] SalesDTO salesDTO)
         {
             return Ok(salesDTO);
@@ -64,7 +62,7 @@ namespace TypeAuthTest.Controllers
 
         // DELETE api/<SalesController>/5
         [HttpDelete("{id}")]
-        [Authorize(Policy = "Base.Sales.Delete")]
+        [Authorize(Policy = "Customers.Delete")]
         public IActionResult Delete(int id)
         {
             return Ok("Delete " + id.ToString());

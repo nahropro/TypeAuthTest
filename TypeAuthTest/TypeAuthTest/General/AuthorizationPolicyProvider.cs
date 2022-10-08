@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
+using ShiftSoftware.TypeAuth.Core.Actions;
 using System.Reflection;
 using System.Text.Json;
+using TypeAuth.AccessTree;
+using TypeAuth.AccessTree.ActionTrees;
 using TypeAuthTest.AccessTree;
+using static TypeAuth.AccessTree.ActionTrees.SystemActions;
 
 namespace TypeAuthTest.General
 {
@@ -26,19 +30,64 @@ namespace TypeAuthTest.General
 
             if (policy == null)
             {
-                var accessTreesJson = httpContextAccessor.HttpContext.User.Claims.SingleOrDefault(c => c.Type == "AccessTrees").Value;
-                var accessTrees = JsonSerializer.Deserialize<BaseAction[]>(accessTreesJson);
+                var policyNameSplit= policyName.Split('.');
+                var department = policyNameSplit[0];
+                var action = policyNameSplit[1];
 
-                accessTrees[0].ComputeAction();
-
-                policy = new AuthorizationPolicyBuilder().RequireAssertion(c => true)
+                var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.CRMAgent);
+                var depFieldInfo = GetDepartment(department);
+                var depVal = depFieldInfo.GetValue(depFieldInfo);
+                
+                if (action.ToLower() == "read")
+                {
+                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c => 
+                    tAuth.CanRead((ReadWriteDeleteAction)depVal))
                     .Build();
+                }
+                else if (action.ToLower() == "write")
+                {
+                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
+                    tAuth.CanWrite((ReadWriteDeleteAction)depVal))
+                    .Build();
+                }
+                else if (action.ToLower() == "delete")
+                {
+                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
+                    tAuth.CanDelete((ReadWriteDeleteAction)depVal))
+                    .Build();
+                }
 
                 // Add policy to the AuthorizationOptions, so we don't have to re-create it each time
                 _options.AddPolicy(policyName, policy);
             }
 
             return policy;
+        }
+
+        private FieldInfo GetDepartment(string name)
+        {
+            var crmType = typeof(CRMActions);
+            var loginType = typeof(Login);
+            var userModelType = typeof(UserModule);
+
+            List<FieldInfo> fields = new List<FieldInfo>();
+
+            fields.AddRange(crmType.GetFields().Where(x => x.FieldType == typeof(ReadAction) ||
+                x.FieldType == typeof(ReadWriteAction) ||
+                x.FieldType == typeof(ReadWriteDeleteAction) ||
+                x.FieldType == typeof(BooleanAction)));
+
+            fields.AddRange(loginType.GetFields().Where(x => x.FieldType == typeof(ReadAction) ||
+                x.FieldType == typeof(ReadWriteAction) ||
+                x.FieldType == typeof(ReadWriteDeleteAction) ||
+                x.FieldType == typeof(BooleanAction)));
+
+            fields.AddRange(userModelType.GetFields().Where(x => x.FieldType == typeof(ReadAction) ||
+                x.FieldType == typeof(ReadWriteAction) ||
+                x.FieldType == typeof(ReadWriteDeleteAction) ||
+                x.FieldType == typeof(BooleanAction)));
+
+            return fields?.FirstOrDefault(x => x.Name?.ToLower() == name.ToLower());
         }
 
         //public override async Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
