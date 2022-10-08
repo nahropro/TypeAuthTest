@@ -1,0 +1,15 @@
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.csproj.AssemblyReference.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.AssemblyInfoInputs.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.AssemblyInfo.cs
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.csproj.CoreCompileInputs.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\bin\Debug\net6.0\TypeAuth.AccessTree.deps.json
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\bin\Debug\net6.0\TypeAuth.AccessTree.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\bin\Debug\net6.0\TypeAuth.AccessTree.pdb
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\bin\Debug\net6.0\TypeAuth.Core.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\bin\Debug\net6.0\TypeAuth.Core.pdb
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.csproj.CopyComplete
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\refint\TypeAuth.AccessTree.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\TypeAuth.AccessTree.pdb
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.ActionTree\obj\Debug\net6.0\ref\TypeAuth.AccessTree.dll

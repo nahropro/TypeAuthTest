@@ -1,0 +1,10 @@
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\bin\Debug\netstandard2.0\TypeAuth.Core.deps.json
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\bin\Debug\netstandard2.0\TypeAuth.Core.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\bin\Debug\netstandard2.0\TypeAuth.Core.pdb
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.csproj.AssemblyReference.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.AssemblyInfoInputs.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.AssemblyInfo.cs
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.csproj.CoreCompileInputs.cache
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuth.Core\obj\Debug\netstandard2.0\TypeAuth.Core.pdb

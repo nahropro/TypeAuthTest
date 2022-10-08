@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "huXODjCzr3r0EvqquUu+5of/5eMqcEfVjRYTJz40ER8BrRklvuRjwhBYXE2kfVlHirt1LGyPtjsFSdYlTj3Xzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nahro\\source\\repos\\nahropro\\TypeAuthTest\\TypeAuthTest\\TypeAuth.ActionTree\\TypeAuth.AccessTree.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nahro\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

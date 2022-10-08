@@ -66,3 +66,8 @@ C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\
 C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
 C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\TypeAuth.Core.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\TypeAuth.Core.pdb
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\TypeAuth.AccessTree.dll
+C:\Users\Nahro\source\repos\nahropro\TypeAuthTest\TypeAuthTest\TypeAuthTest\bin\Debug\net6.0\TypeAuth.AccessTree.pdb
