@@ -34,7 +34,7 @@ namespace TypeAuthTest.General
                 var department = policyNameSplit[0];
                 var action = policyNameSplit[1];
 
-                var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.CRMAgent);
+                var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.Affiliates);
                 var depFieldInfo = GetDepartment(department);
                 var depVal = depFieldInfo.GetValue(depFieldInfo);
                 

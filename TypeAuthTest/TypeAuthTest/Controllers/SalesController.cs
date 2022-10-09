@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TypeAuth.AccessTree.ActionTrees;
 using TypeAuthTest.DTOs.SalesDTOs;
 using TypeAuthTest.Extentions;
+using TypeAuthTest.General;
 using TypeAuthTest.Services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,7 +12,7 @@ namespace TypeAuthTest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class SalesController : ControllerBase
     {
         private readonly ISalesService salesService;
@@ -22,7 +24,7 @@ namespace TypeAuthTest.Controllers
 
         // GET: api/<SalesController>
         [HttpGet]
-        [Authorize(Policy ="Customers.Read")]
+        [TypeAuthorize(action: "")]
         public string Get()
         {
             return "List of sales";
@@ -46,8 +48,8 @@ namespace TypeAuthTest.Controllers
         [Authorize(Policy = "Customers.Write")]
         public IActionResult Post([FromBody] SalesDTO salesDTO)
         {
-            if (salesDTO.Discount > this.GetAccessTree().Sales.Discount.Value)
-                return StatusCode(403, "The discount exceeded you limit");
+            //if (salesDTO.Discount > this.GetAccessTree().Sales.Discount.Value)
+            //    return StatusCode(403, "The discount exceeded you limit");
 
             return Ok(salesDTO);
         }
