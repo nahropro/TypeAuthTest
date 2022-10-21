@@ -1,8 +1,0 @@
-﻿{
-  "CRMActions": {
-    "Customers": [ 1 ],
-    "DiscountVouchers": [ 1 ],
-    "DiscountValue": "2",
-    "WorkSchedule": "20:00:00 - 21:00:00"
-  }
-}

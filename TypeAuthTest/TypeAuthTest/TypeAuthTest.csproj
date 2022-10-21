@@ -21,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TypeAuth.ActionTree\TypeAuth.AccessTree.csproj" />
-    <ProjectReference Include="..\TypeAuth.Core\TypeAuth.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\TypeAuth\TypeAuth.Core.Tests\TypeAuthTests.csproj" />
+    <ProjectReference Include="..\..\..\..\TypeAuth\TypeAuth.Core\TypeAuth.Core.csproj" />
   </ItemGroup>
 
 </Project>
