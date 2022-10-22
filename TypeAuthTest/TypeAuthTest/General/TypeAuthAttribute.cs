@@ -3,39 +3,34 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 using ShiftSoftware.TypeAuth.Core;
 using System.Security.Claims;
+using TypeAuthTests;
+using System.Net;
 
 namespace TypeAuthTest.General
 {
-    public class TypeAuthAttribute : TypeFilterAttribute
+    public class TypeAuthAttribute : AuthorizeAttribute, IAuthorizationFilter
     {
         private readonly Type actionTreeType;
         private readonly string actionName;
         private readonly Access access;
 
-        public TypeAuthAttribute(Type actionTreeType, string actionName, Access access) : base(typeof(TypeAuthFilter))
+        public TypeAuthAttribute(Type actionTreeType, string actionName, Access access)
         {
             this.actionTreeType = actionTreeType;
             this.actionName = actionName;
             this.access = access;
-            Arguments
-        }
-    }
-
-    public class TypeAuthFilter : IAuthorizationFilter
-    {
-        readonly Claim _claim;
-
-        public TypeAuthFilter(Claim claim)
-        {
-            _claim = claim;
         }
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var hasClaim = context.HttpContext.User.Claims.Any(c => c.Type == _claim.Type && c.Value == _claim.Value);
-            if (!hasClaim)
+            var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.CRMAgent);
+
+            if (context.HttpContext.User.Identity?.IsAuthenticated??false)
             {
-                context.Result = new ForbidResult();
+                if (!tAuth.Can(actionTreeType, actionName, access))
+                {
+                    context.Result = new ForbidResult();
+                }
             }
         }
     }

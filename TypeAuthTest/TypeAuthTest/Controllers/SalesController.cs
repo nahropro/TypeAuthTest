@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TypeAuth.AccessTree.ActionTrees;
+using ShiftSoftware.TypeAuth.Core;
 using TypeAuthTest.DTOs.SalesDTOs;
-using TypeAuthTest.Extentions;
 using TypeAuthTest.General;
 using TypeAuthTest.Services.Interfaces;
+using TypeAuthTests.HypoERP.ActionTrees;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +24,7 @@ namespace TypeAuthTest.Controllers
 
         // GET: api/<SalesController>
         [HttpGet]
-        [TypeAuthorize(action: "")]
+        [TypeAuth(typeof(CRMActions),nameof(CRMActions.Customers), Access.Delete)]
         public string Get()
         {
             return "List of sales";

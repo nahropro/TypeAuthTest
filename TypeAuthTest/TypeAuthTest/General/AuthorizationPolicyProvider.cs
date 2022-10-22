@@ -2,11 +2,8 @@
 using Microsoft.Extensions.Options;
 using ShiftSoftware.TypeAuth.Core.Actions;
 using System.Reflection;
-using System.Text.Json;
-using TypeAuth.AccessTree;
-using TypeAuth.AccessTree.ActionTrees;
-using TypeAuthTest.AccessTree;
-using static TypeAuth.AccessTree.ActionTrees.SystemActions;
+using TypeAuthTests.HypoERP.ActionTrees;
+using static TypeAuthTests.HypoERP.ActionTrees.SystemActions;
 
 namespace TypeAuthTest.General
 {
@@ -30,32 +27,32 @@ namespace TypeAuthTest.General
 
             if (policy == null)
             {
-                var policyNameSplit= policyName.Split('.');
-                var department = policyNameSplit[0];
-                var action = policyNameSplit[1];
+                //var policyNameSplit= policyName.Split('.');
+                //var department = policyNameSplit[0];
+                //var action = policyNameSplit[1];
 
-                var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.Affiliates);
-                var depFieldInfo = GetDepartment(department);
-                var depVal = depFieldInfo.GetValue(depFieldInfo);
+                //var tAuth = AccessTreeHelper.GetTypeAuthContext(AccessTreeFiles.Affiliates);
+                //var depFieldInfo = GetDepartment(department);
+                //var depVal = depFieldInfo.GetValue(depFieldInfo);
                 
-                if (action.ToLower() == "read")
-                {
-                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c => 
-                    tAuth.CanRead((ReadWriteDeleteAction)depVal))
-                    .Build();
-                }
-                else if (action.ToLower() == "write")
-                {
-                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
-                    tAuth.CanWrite((ReadWriteDeleteAction)depVal))
-                    .Build();
-                }
-                else if (action.ToLower() == "delete")
-                {
-                    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
-                    tAuth.CanDelete((ReadWriteDeleteAction)depVal))
-                    .Build();
-                }
+                //if (action.ToLower() == "read")
+                //{
+                //    policy = new AuthorizationPolicyBuilder().RequireAssertion(c => 
+                //    tAuth.CanRead((ReadWriteDeleteAction)depVal))
+                //    .Build();
+                //}
+                //else if (action.ToLower() == "write")
+                //{
+                //    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
+                //    tAuth.CanWrite((ReadWriteDeleteAction)depVal))
+                //    .Build();
+                //}
+                //else if (action.ToLower() == "delete")
+                //{
+                //    policy = new AuthorizationPolicyBuilder().RequireAssertion(c =>
+                //    tAuth.CanDelete((ReadWriteDeleteAction)depVal))
+                //    .Build();
+                //}
 
                 // Add policy to the AuthorizationOptions, so we don't have to re-create it each time
                 _options.AddPolicy(policyName, policy);
@@ -70,7 +67,7 @@ namespace TypeAuthTest.General
             var loginType = typeof(Login);
             var userModelType = typeof(UserModule);
 
-            List<FieldInfo> fields = new List<FieldInfo>();
+            List<FieldInfo> fields = new();
 
             fields.AddRange(crmType.GetFields().Where(x => x.FieldType == typeof(ReadAction) ||
                 x.FieldType == typeof(ReadWriteAction) ||
